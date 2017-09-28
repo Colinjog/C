@@ -1,0 +1,63 @@
+#include <stdio.h>
+//解二元一次方程组 
+#include <stdlib.h>
+void print(double x1, double x2);
+
+int main(void)
+{
+	double a1, b1, c1;
+	double a2, b2, c2;
+	double x1, x2;
+	x1 = x2 = 0.0;
+	printf("a1x1 + b1x2 = c1");
+	printf("\na2x1 + b2x2 = c2\n");
+	printf("请依次输入a1 b1 c1 的值:");
+	
+	while (scanf("%lf %lf %lf",&a1, &b1, &c1) != 3)
+	{
+		//getchar(); 
+		
+		printf("please enter again\n");
+		while (getchar() != '\n')
+			continue;
+	} 
+	printf("请依次输入a2 b2 c2 的值:");
+	while (scanf("%lf %lf %lf",&a2, &b2, &c2) != 3)
+	{
+		//getchar(); 
+		
+		printf("please enter again\n");
+		while (getchar() != '\n')
+			continue;
+	} 
+	
+	double d1 = a1*b2 - a2*b1;
+	double d2 = c1*b2 - c2*b1;
+	printf("d1 = %lf\nd2 = %lf\n",d1, d2);
+	// d1, d2被用来判断二元一次方程组解的个数
+	if ((d1==0)&&(d2==0))
+	{
+		printf("方程组有无穷个解\n");
+	}
+	else if ((d1!=0.0) && (d2==0.0))
+		{
+			x1 = 0.0;
+			x2 = c1/b1;
+			print(x1, x2);
+		}
+	else if ((d2!=0.0) && (d1==0.0))
+		printf("方程组无解!\n");
+	else
+	{
+		x1 = d2 / d1;
+		x2 = (c2 - a2*x1)/b2;
+		print(x1, x2) ;
+	}
+	
+	return 0;
+	
+}
+void print(double x1, double x2)
+{
+	printf("x1 = %.2lf\nx2 = %.2lf\n",x1, x2);
+}
