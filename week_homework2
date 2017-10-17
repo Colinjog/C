@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <float.h>
+
+
+int main(void)
+{
+	int x = 2.2;
+	short y = 0x7FFF;
+	short z = 0xFFFF;
+	unsigned short w = 0xFFFF;
+	float u = 0.177;
+	
+	printf("%d\n", x);
+	printf("%d\n", y);
+	printf("%d\n", z);
+	printf("%u\n", w);
+	printf("%f\n", u);
+	printf("%lf\n", DBL_MAX);
+
+	return 0;
+}
