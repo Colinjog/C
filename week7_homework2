@@ -24,7 +24,7 @@ int main(void)
 	} 
 	else
 	{
-		printf("四舍五入后值为%lf",int(num*pow(10, bit))/pow(10, -bit));
+		printf("四舍五入后值为%lf",int(num*pow(10, -bit))/pow(10, -bit));
 	}
 	return 0;
 } 
