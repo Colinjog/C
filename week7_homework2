@@ -1,0 +1,30 @@
+/*
+	本程序用来定义四舍五入 
+*/
+#include <stdio.h>
+#include <math.h>
+int main(void)
+{
+	double num;
+	printf("请输入一个数:");
+	
+	scanf("%lf", &num); 
+	int bit;
+	printf("\n请输入四舍五入的位数\n1为个位\n-1为小数第一位\n");
+	scanf("%d", &bit);
+	if (bit < 0)
+	{
+		bit++;
+	}
+	int interval_bit1 = int((num*pow(10, -bit) - int(num*pow(10, -bit)))*10);
+	
+	if (interval_bit1 >=5)
+	{
+		printf("四舍五入后值为%lf", (int(num*pow(10, -bit))+1)/(pow(10, -bit)));
+	} 
+	else
+	{
+		printf("四舍五入后值为%lf",int(num*pow(10, bit))/pow(10, -bit));
+	}
+	return 0;
+} 
