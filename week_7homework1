@@ -2,14 +2,19 @@
 	本程序用来分离一个数的整数与小数部分 
 */
 #include <stdio.h>
-
+void int_or_decimal(double num);
 int main(void)
 {
 	double num;
 	printf("请输入一个数:");
 	scanf("%lf", &num);
+	int_or_decimal(num);
+	return 0;
+} 
+void int_or_decimal(double num)
+{
 	int num_int = int(num);
 	double num_decimal = num - num_int;
 	printf("整数部分为%d\n小数部分为%lf\n", num_int, num_decimal);
-	return 0;
-} 
+	
+}
