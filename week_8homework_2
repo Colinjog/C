@@ -1,0 +1,27 @@
+//这个程序为课后作业
+//比较两个数是否相等(误差1e-6)
+#include <stdio.h>
+#include <stdbool.h>
+
+double deviation = 1e-6;
+bool Is_equal(double a, double b); 
+int main(void)
+{
+	double a, b;
+	while (scanf("%lf %lf", &a, &b)==2)
+	{
+		if (Is_equal(a, b))
+			printf("相等\n");
+		else
+			printf("不相等\n");
+		break;
+	} 
+} 
+bool Is_equal(double a, double b)
+{
+	if (((a-b)>=-deviation)&&((a-b)<=deviation))
+		return true;
+	else
+		return false;
+}
+//double无法精确表达数值, 结果有点问题
