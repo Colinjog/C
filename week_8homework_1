@@ -1,0 +1,23 @@
+//此程序为课后作业
+//求两个数的大值
+#include <stdio.h>
+
+//function
+double bigger(double a, double b);
+int main(void)
+{
+	double a, b;
+	while (scanf("%lf %lf", &a, &b)==2)
+	{
+		printf("%lf",bigger(a, b));
+		break;
+	}
+	return 0;
+} 
+double bigger(double a, double b)
+{
+	if (a >= b)
+		return a;
+	else
+		return b; 
+}
