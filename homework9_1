@@ -1,0 +1,32 @@
+//此程序用于对三个数排序 
+#include <stdio.h>
+
+int main(void)
+{
+    double num[3];
+    
+    int i;
+    for (i=0; i<3; i++)
+    {
+        scanf("%lf", num+i);
+    }
+    double interval;
+    for (i=0; i<2; i++) 
+        if (num[i] > num[i+1])
+            {
+                interval = num[i];
+                num[i] = num[i+1];
+                num[i+1] = interval;
+            } 
+    if (num[0] > num[1])
+            {
+                interval = num[0];
+                num[0] = num[1];
+                num[1] = interval;
+            } 
+    for (i=0; i<3; i++)
+    {
+        printf("%.2lf ", num[i]);
+    }
+    return 0;
+}
