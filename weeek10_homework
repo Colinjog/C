@@ -1,0 +1,72 @@
+//此程序用于对超级素数进行处理
+#include <stdio.h>
+#include <stdbool.h>
+#include <math.h>
+bool Is_prime(int input);
+int main(void)
+{
+ int count = 0;
+ int sum = 0;
+ int special_prime = 100;
+ int start = 100;
+ int tho = 0;
+ int hund = 0;
+ int tens = 0;
+ int num = 0;
+ for (; start<=9999; start++)
+ {
+  if (Is_prime(start))
+   {
+    if (start<=999)
+    {
+     hund = start/100;
+     tens = (start-100*hund)/10;
+     num = start%10;
+     if (Is_prime(hund+tens+num))
+      if (Is_prime(hund*hund + tens*tens + num*num))
+       if (Is_prime(hund*tens*num))
+        {
+         special_prime = start;
+         sum += start;
+         count++;
+         printf("%d ", start);
+        }
+    }
+    else
+    {
+     tho = start/1000;
+     hund = (start - tho * 1000)/100;
+     num = start%10;
+     tens = (start%100)/10;
+     if (Is_prime(hund+tens+num+tho))
+      if (Is_prime(hund*hund + tens*tens + num*num+ tho*tho))
+       if (Is_prime(hund*tens*num*tho))
+        {
+         special_prime = start;
+         sum += start;
+         count++;
+         printf("%d ", start);
+        }
+    }
+   }
+ }
+ printf("\n超级素数个数:%d\n", count);
+ printf("超级素数之和：%d\n", sum);
+ printf("最大超级素数：%d\n", special_prime); 
+ return 0;
+}
+bool Is_prime(int input)
+{
+ int num;
+ num = input/2;
+ if (input<=1)
+  return false;
+ int i;
+ for (i=2; i<=num; i++)
+ {
+  if (input%i == 0)
+   return false;
+   
+ }
+ return true;
+}
